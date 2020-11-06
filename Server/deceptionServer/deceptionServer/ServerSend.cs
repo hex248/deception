@@ -73,13 +73,23 @@ namespace deceptionServer
             }
         }
 
-        public static void UDPTest(int _toClient)
+        public static void PlayerName(int _toClient)
         {
             using (Packet _packet = new Packet((int)ServerPackets.playerName))
             {
                 _packet.Write("Player name request packet.");
 
                 SendUDPData(_toClient, _packet);
+            }
+        }
+
+        public static void PlayerDisconnected(int _playerId)
+        {
+            using (Packet _packet = new Packet((int)ServerPackets.playerDisconnected))
+            {
+                _packet.Write(_playerId);
+
+                SendTCPDataToAll(_packet);
             }
         }
         #endregion

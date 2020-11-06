@@ -15,7 +15,7 @@ namespace deceptionServer
             Thread mainThread = new Thread(new ThreadStart(MainThread));
             mainThread.Start();
 
-            Server.Start(5, 42069);
+            Server.Start(5, 54850);
         }
 
         private static void MainThread()

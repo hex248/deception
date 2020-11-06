@@ -73,6 +73,8 @@ namespace deceptionServer
                     int _byteLength = stream.EndRead(_result);
                     if (_byteLength <= 0)
                     {
+                        Console.WriteLine("Disconnecting player");
+                        Server.clients[id].Disconnect();
                         return;
                     }
 
@@ -85,6 +87,7 @@ namespace deceptionServer
                 catch (Exception _ex)
                 {
                     Console.WriteLine($"Error receiving TCP data: {_ex}");
+                    Server.clients[id].Disconnect();
                 }
             }
 
@@ -135,6 +138,15 @@ namespace deceptionServer
 
                 return false;
             }
+
+            public void Disconnect()
+            {
+                socket.Close();
+                stream = null;
+                receivedData = null;
+                receiveBuffer = null;
+                socket = null;
+            }
         }
 
         public class UDP
@@ -151,7 +163,7 @@ namespace deceptionServer
             public void Connect(IPEndPoint _endPoint)
             {
                 endPoint = _endPoint;
-                ServerSend.UDPTest(id);
+                ServerSend.PlayerName(id);
             }
 
             public void SendData(Packet _packet)
@@ -173,6 +185,20 @@ namespace deceptionServer
                     }
                 });
             }
+
+            public void Disconnect()
+            {
+                endPoint = null;
+            }
+        }
+
+        public void Disconnect()
+        {
+            Console.WriteLine($"{tcp.socket.Client.RemoteEndPoint} has disconnected");
+            tcp.Disconnect();
+            udp.Disconnect();
+
+            ServerSend.PlayerDisconnected(id);
         }
     }
 }
