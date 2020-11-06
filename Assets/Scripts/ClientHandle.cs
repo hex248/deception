@@ -24,4 +24,11 @@ public class ClientHandle : MonoBehaviour
         Debug.Log($"Received packet via UDP. Contains message: {_msg}");
         ClientSend.playerNameRequestReceived();
     }
+
+    public static void PlayerDisconnected(Packet _packet)
+    {
+        int _id = _packet.ReadInt();
+
+        Debug.Log($"client with id {_id} disconnected");
+    }
 }

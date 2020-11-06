@@ -6,7 +6,8 @@ using System.Text;
 public enum ServerPackets
 {
     welcome = 1,
-    playerName
+    playerName,
+    playerDisconnected
 }
 
 /// <summary>Sent from client to server.</summary>
