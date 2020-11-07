@@ -31,4 +31,13 @@ public class ClientHandle : MonoBehaviour
 
         Debug.Log($"client with id {_id} disconnected");
     }
+
+    public static void chatMessage(Packet _packet)
+    {
+        string _username = _packet.ReadString();
+        string _message = _packet.ReadString();
+
+        Debug.Log($"Received packet via UDP. Contains chat message: {_message} from {_username}");
+        ClientSend.chatMessageReceived();
+    }
 }

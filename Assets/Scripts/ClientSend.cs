@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ClientSend : MonoBehaviour
 {
@@ -38,6 +36,26 @@ public class ClientSend : MonoBehaviour
 
             SendUDPData(_packet);
         }
+
+
+    }
+
+    public static void chatMessageReceived()
+    {
+        using (Packet _packet = new Packet((int)ClientPackets.chatMessageReceived))
+        {
+            string _username = UIManager.instance.usernameField.text;
+
+            string _message = UIManager.instance.chatBox.text;
+
+            _packet.Write(_username);
+
+            _packet.Write(_message);
+
+            SendUDPData(_packet);
+        }
+
+
     }
     #endregion
 }
