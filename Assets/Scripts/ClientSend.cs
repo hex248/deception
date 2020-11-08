@@ -52,7 +52,7 @@ public class ClientSend : MonoBehaviour
 
             _packet.Write(_message);
 
-            SendUDPData(_packet);
+            SendTCPData(_packet);
         }
 
 

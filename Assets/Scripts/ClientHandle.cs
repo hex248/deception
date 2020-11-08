@@ -37,7 +37,9 @@ public class ClientHandle : MonoBehaviour
         string _username = _packet.ReadString();
         string _message = _packet.ReadString();
 
-        Debug.Log($"Received packet via UDP. Contains chat message: {_message} from {_username}");
-        ClientSend.chatMessageReceived();
+        Debug.Log($"(TCP) Chat message received: {_message} from {_username}");
+
+        UIManager.instance.recentUser.text = _username + ":";
+        UIManager.instance.recentMessage.text = _message;
     }
 }

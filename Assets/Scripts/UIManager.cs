@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -15,6 +15,10 @@ public class UIManager : MonoBehaviour
     public GameObject chatBoxOBJ;
 
     public InputField chatBox;
+
+    public TextMeshProUGUI recentUser;
+
+    public TextMeshProUGUI recentMessage;
 
     private void Awake()
     {

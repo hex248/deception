@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Net.Http;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
@@ -278,7 +279,8 @@ public class Client : MonoBehaviour
         {
             { (int)ServerPackets.welcome, ClientHandle.Welcome },
             { (int)ServerPackets.playerName, ClientHandle.playerName },
-            { (int)ServerPackets.playerDisconnected, ClientHandle.PlayerDisconnected }
+            { (int)ServerPackets.playerDisconnected, ClientHandle.PlayerDisconnected },
+            { (int)ServerPackets.chatMessage, ClientHandle.chatMessage }
         };
         Debug.Log("Initialised packets.");
     }
