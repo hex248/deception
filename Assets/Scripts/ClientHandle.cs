@@ -39,7 +39,6 @@ public class ClientHandle : MonoBehaviour
 
         Debug.Log($"(TCP) Chat message received: {_message} from {_username}");
 
-        UIManager.instance.recentUser.text = _username + ":";
-        UIManager.instance.recentMessage.text = _message;
+        UIManager.SendMessageToChat(_username, _message);
     }
 }

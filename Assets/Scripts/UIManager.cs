@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class UIManager : MonoBehaviour
 {
@@ -12,13 +13,24 @@ public class UIManager : MonoBehaviour
 
     public InputField usernameField;
 
+    public static bool loggedIn;
+
     public GameObject chatBoxOBJ;
 
-    public InputField chatBox;
+    public static int maxMessages = 25;
 
-    public TextMeshProUGUI recentUser;
 
-    public TextMeshProUGUI recentMessage;
+    public static GameObject chatPanel, textObject;
+
+    public GameObject chat_panel, text_prefab;
+
+    public static InputField chat_input;
+
+    public InputField chatInput;
+
+    [SerializeField]
+    static List<Message> messageList = new List<Message>();
+
 
     private void Awake()
     {
@@ -28,30 +40,79 @@ public class UIManager : MonoBehaviour
         }
         else if (instance != this)
         {
-            Debug.Log("Insance already exists, destroying object");
+            Debug.Log("Instance already exists, destroying object");
             Destroy(this);
+        }
+
+        chatPanel = chat_panel;
+        textObject = text_prefab;
+        chat_input = chatInput;
+    }
+
+    void Update()
+    {
+        if (!loggedIn)
+        {
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                ConnectToServer();
+            }
+        }
+        else if (loggedIn)
+        {
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                SendMessage();
+
+                chat_input.ActivateInputField();
+            }
         }
     }
 
     public void ConnectToServer()
     {
-        startMenu.SetActive(false);
-        usernameField.interactable = false;
-        Client.instance.ConnectToServer();
+        if (usernameField.text.Trim(' ').Length <= 20)
+        {
+            startMenu.SetActive(false);
+            usernameField.interactable = false;
+            usernameField.text = usernameField.text.Trim(' ');
+            Client.instance.ConnectToServer();
 
-        chatBoxOBJ.SetActive(true);
-
+            chatBoxOBJ.SetActive(true);
+            loggedIn = true;
+        }
     }
 
     public void SendMessage()
     {
-        if (chatBox.text.Trim(' ') != "" )
+        if (chatInput.text.Trim(' ') != "" && chatInput.text.Length <= 100)
         {
+            chatInput.text = chatInput.text.Trim(' ');
+
             ClientSend.chatMessageReceived();
 
-            chatBox.Select();
-            chatBox.text = "";
+            chatInput.text = "";
         }
+    }
+
+    public static void SendMessageToChat(string username, string content)
+    {
+        if (messageList.Count >= maxMessages)
+        {
+            Destroy(messageList[0].textObject.gameObject);
+            messageList.Remove(messageList[0]);
+        }
+        Message newMessage = new Message(username, content);
+
+        GameObject newText = Instantiate(textObject, chatPanel.transform);
+
+        newMessage.textObject = newText.GetComponent<TextMeshProUGUI>();
+
+        newMessage.textObject.text = $"{newMessage.username}: {newMessage.content}";
+
+        messageList.Add(newMessage);
+
+        chat_input.ActivateInputField();
     }
 
 

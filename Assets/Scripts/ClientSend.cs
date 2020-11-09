@@ -46,7 +46,7 @@ public class ClientSend : MonoBehaviour
         {
             string _username = UIManager.instance.usernameField.text;
 
-            string _message = UIManager.instance.chatBox.text;
+            string _message = UIManager.instance.chatInput.text;
 
             _packet.Write(_username);
 
@@ -54,8 +54,6 @@ public class ClientSend : MonoBehaviour
 
             SendTCPData(_packet);
         }
-
-
     }
     #endregion
 }
