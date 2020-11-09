@@ -27,10 +27,15 @@ ScriptsOnlyBuild:
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.ContentSizeFitter
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
     - UnityEngine.UI.InputField
+    - UnityEngine.UI.Mask
+    - UnityEngine.UI.ScrollRect
+    - UnityEngine.UI.Scrollbar
     - UnityEngine.UI.Text
+    - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
     Assets/Scenes/Main.unity:
     - Class: 1
@@ -52,37 +57,47 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11802}
+      Script: {instanceID: 11828}
     - Class: 114
-      Script: {instanceID: 11980}
+      Script: {instanceID: 12006}
     - Class: 114
-      Script: {instanceID: 12022}
+      Script: {instanceID: 12008}
     - Class: 114
-      Script: {instanceID: 12460}
+      Script: {instanceID: 12048}
     - Class: 114
-      Script: {instanceID: 12492}
+      Script: {instanceID: 12160}
     - Class: 114
-      Script: {instanceID: 12918}
+      Script: {instanceID: 12388}
     - Class: 114
-      Script: {instanceID: 12930}
+      Script: {instanceID: 12486}
     - Class: 114
-      Script: {instanceID: 13006}
+      Script: {instanceID: 12518}
     - Class: 114
-      Script: {instanceID: 13136}
+      Script: {instanceID: 12712}
     - Class: 114
-      Script: {instanceID: 13168}
+      Script: {instanceID: 12944}
     - Class: 114
-      Script: {instanceID: 13184}
+      Script: {instanceID: 12956}
     - Class: 114
-      Script: {instanceID: 13276}
+      Script: {instanceID: 13032}
     - Class: 114
-      Script: {instanceID: 13392}
+      Script: {instanceID: 13054}
     - Class: 114
-      Script: {instanceID: 13458}
+      Script: {instanceID: 13162}
     - Class: 114
-      Script: {instanceID: 13630}
+      Script: {instanceID: 13194}
     - Class: 114
-      Script: {instanceID: 13844}
+      Script: {instanceID: 13210}
+    - Class: 114
+      Script: {instanceID: 13302}
+    - Class: 114
+      Script: {instanceID: 13418}
+    - Class: 114
+      Script: {instanceID: 13484}
+    - Class: 114
+      Script: {instanceID: 13656}
+    - Class: 114
+      Script: {instanceID: 13870}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -414,7 +429,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: 1b782fd517c4949d749f63b45393d8ac
+      Hash: bd0736e278d36d2ec51b1b80fb9c9384
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIManager
@@ -553,4 +568,5 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main.unity
-  playerPath: D:/Programming/Unity/deception/Builds/v1.1 - Temporary Chat System/deception.exe
+  playerPath: D:/Programming/Unity/deception/Builds/v1.4.6 Full Chat System, Scaling
+    Box, Windowed - Input sanitisation, username sanitisation/deception.exe
