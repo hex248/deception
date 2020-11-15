@@ -7,8 +7,11 @@ public enum ServerPackets
 {
     welcome = 1,
     playerName,
+    playerObject,
     playerDisconnected,
-    chatMessage
+    chatMessage,
+    lobbyJoin,
+    lobbyUpdate
 }
 
 /// <summary>Sent from client to server.</summary>
@@ -16,7 +19,10 @@ public enum ClientPackets
 {
     welcomeReceived = 1,
     playerNameReceived,
-    chatMessageReceived
+    playerMacReceived,
+    chatMessageReceived,
+    createLobbyReceived,
+    lobbyJoinReceived
 }
 
 public class Packet : IDisposable

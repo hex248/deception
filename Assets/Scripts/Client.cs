@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class Client : MonoBehaviour
 {
+    public static Player player = new Player();
+    public static List<Lobby> lobbyList = new List<Lobby>();
     public static Client instance;
     public static int dataBufferSize = 4096;
 
@@ -279,8 +281,12 @@ public class Client : MonoBehaviour
         {
             { (int)ServerPackets.welcome, ClientHandle.Welcome },
             { (int)ServerPackets.playerName, ClientHandle.playerName },
+            { (int)ServerPackets.playerObject, ClientHandle.PlayerObject },
             { (int)ServerPackets.playerDisconnected, ClientHandle.PlayerDisconnected },
-            { (int)ServerPackets.chatMessage, ClientHandle.chatMessage }
+            { (int)ServerPackets.chatMessage, ClientHandle.chatMessage },
+            { (int)ServerPackets.lobbyJoin, ClientHandle.lobbyAccepted },
+            { (int)ServerPackets.lobbyUpdate, ClientHandle.lobbyUpdate }
+
         };
         Debug.Log("Initialised packets.");
     }
