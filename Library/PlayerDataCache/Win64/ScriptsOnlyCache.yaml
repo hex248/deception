@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - Client
+    - Lobby
     - ThreadManager
     - UIManager
     Unity.Rider.Editor.dll:
@@ -59,45 +60,47 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11828}
     - Class: 114
-      Script: {instanceID: 12006}
-    - Class: 114
       Script: {instanceID: 12008}
     - Class: 114
-      Script: {instanceID: 12048}
+      Script: {instanceID: 12010}
     - Class: 114
-      Script: {instanceID: 12160}
+      Script: {instanceID: 12050}
     - Class: 114
-      Script: {instanceID: 12388}
+      Script: {instanceID: 12162}
     - Class: 114
-      Script: {instanceID: 12486}
+      Script: {instanceID: 12390}
     - Class: 114
-      Script: {instanceID: 12518}
+      Script: {instanceID: 12488}
     - Class: 114
-      Script: {instanceID: 12712}
+      Script: {instanceID: 12520}
     - Class: 114
-      Script: {instanceID: 12944}
+      Script: {instanceID: 12714}
     - Class: 114
-      Script: {instanceID: 12956}
+      Script: {instanceID: 12946}
     - Class: 114
-      Script: {instanceID: 13032}
+      Script: {instanceID: 12958}
     - Class: 114
-      Script: {instanceID: 13054}
+      Script: {instanceID: 12976}
     - Class: 114
-      Script: {instanceID: 13162}
+      Script: {instanceID: 13038}
     - Class: 114
-      Script: {instanceID: 13194}
+      Script: {instanceID: 13060}
     - Class: 114
-      Script: {instanceID: 13210}
+      Script: {instanceID: 13168}
     - Class: 114
-      Script: {instanceID: 13302}
+      Script: {instanceID: 13200}
     - Class: 114
-      Script: {instanceID: 13418}
+      Script: {instanceID: 13216}
     - Class: 114
-      Script: {instanceID: 13484}
+      Script: {instanceID: 13308}
     - Class: 114
-      Script: {instanceID: 13656}
+      Script: {instanceID: 13424}
     - Class: 114
-      Script: {instanceID: 13870}
+      Script: {instanceID: 13490}
+    - Class: 114
+      Script: {instanceID: 13662}
+    - Class: 114
+      Script: {instanceID: 13876}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -363,6 +366,12 @@ ScriptsOnlyBuild:
     className: Client
   - hash:
       serializedVersion: 2
+      Hash: f817e92ccf4e2c0d414e46b42a70a40f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Lobby
+  - hash:
+      serializedVersion: 2
       Hash: c1d728126ff1918728036c59106d32b2
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -429,7 +438,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: bd0736e278d36d2ec51b1b80fb9c9384
+      Hash: b3eadb9a97e4951bb5b39566c1212d88
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIManager
@@ -568,5 +577,5 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main.unity
-  playerPath: D:/Programming/Unity/deception/Builds/v1.4.6 Full Chat System, Scaling
-    Box, Windowed - Input sanitisation, username sanitisation/deception.exe
+  playerPath: D:/Programming/Unity/deception/Builds/v1.4.8 Lobby system with chat
+    - Windowed/deception.exe
