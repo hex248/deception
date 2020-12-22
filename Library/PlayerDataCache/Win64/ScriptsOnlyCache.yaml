@@ -438,7 +438,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: b3eadb9a97e4951bb5b39566c1212d88
+      Hash: 1f4fe45b358a8db48c453b85e2a7f8d5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIManager
@@ -577,5 +577,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main.unity
-  playerPath: D:/Programming/Unity/deception/Builds/v1.4.8 Lobby system with chat
-    - Windowed/deception.exe
+  playerPath: D:/Programming/Unity/deception/Builds/v1.4.9 Lobby Leave - Windowed/deception.exe
