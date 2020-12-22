@@ -64,7 +64,7 @@ public class ClientHandle : MonoBehaviour
 
         Debug.Log($"Joined lobby: {Client.player.currentLobby}");
 
-        UIManager.chatBoxStaticOBJ.SetActive(true);
+        UIManager.LobbyWaitingRoomStaticOBJ.SetActive(true);
         UIManager.lobbySelectionStaticOBJ.SetActive(false);
     }
 

@@ -22,7 +22,8 @@ public enum ClientPackets
     playerMacReceived,
     chatMessageReceived,
     createLobbyReceived,
-    lobbyJoinReceived
+    lobbyJoinReceived,
+    lobbyLeaveReceived
 }
 
 public class Packet : IDisposable

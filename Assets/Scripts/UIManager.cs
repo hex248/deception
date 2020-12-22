@@ -21,8 +21,8 @@ public class UIManager : MonoBehaviour
     public static GameObject lobbySelectionStaticOBJ;
     public GameObject lobbySelectionOBJ;
     
-    public static GameObject chatBoxStaticOBJ;
-    public GameObject chatBoxOBJ;
+    public static GameObject LobbyWaitingRoomStaticOBJ;
+    public GameObject LobbyWaitingRoomOBJ;
 
     public static int maxMessages = 25;
 
@@ -65,7 +65,7 @@ public class UIManager : MonoBehaviour
         chat_input = chatInput;
 
         lobbySelectionStaticOBJ = lobbySelectionOBJ;
-        chatBoxStaticOBJ = chatBoxOBJ;
+        LobbyWaitingRoomStaticOBJ = LobbyWaitingRoomOBJ;
 
         currentLobbyList = Client.lobbyList;
     }
@@ -123,6 +123,14 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void leaveLobby()
+    { 
+        ClientSend.leaveLobby(Client.player.currentLobby);
+        Client.player.currentLobby = null;
+        LobbyWaitingRoomStaticOBJ.SetActive(false);
+        lobbySelectionStaticOBJ.SetActive(true);
+    }
+
     public void RefreshLobbies()
     {
         currentLobbyList = Client.lobbyList;
@@ -131,8 +139,8 @@ public class UIManager : MonoBehaviour
         {
             foreach (GameObject obj in lobbyListObj)
             {
-                Destroy(obj.gameObject);
                 lobbyListObj.Remove(obj);
+                Destroy(obj.gameObject);
             }
         }
         catch

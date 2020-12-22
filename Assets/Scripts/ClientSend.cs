@@ -49,6 +49,17 @@ public class ClientSend : MonoBehaviour
         }
     }
 
+    public static void leaveLobby(string lobbyId)
+    {
+        using (Packet _packet = new Packet((int)ClientPackets.lobbyLeaveReceived))
+        {
+            _packet.Write(Client.player.ip.ToString());
+            _packet.Write(lobbyId);
+
+            SendTCPData(_packet);
+        }
+    }
+
     public static void playerNameRequestReceived()
     {
         using (Packet _packet = new Packet((int)ClientPackets.playerNameReceived))
